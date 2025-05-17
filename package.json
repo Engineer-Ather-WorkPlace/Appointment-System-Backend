@@ -1,0 +1,30 @@
+{
+  "name": "lifeline-app-backend",
+  "version": "1.0.0",
+  "description": "A scalable backend for a doctor appointment system featuring JWT-based authentication, role-based access control, RESTful APIs, appointment management, patient appointment history tracking, and modular middleware for secure and efficient operations.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eng-Ather/Lifeline-App-Backend.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eng-Ather/Lifeline-App-Backend/issues"
+  },
+  "homepage": "https://github.com/Eng-Ather/Lifeline-App-Backend#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.1"
+  }
+}
