@@ -1,5 +1,3 @@
-
-
 import jwt from "jsonwebtoken";
 import sendResponse from "../helper/sendResponse";
 import dotenv from "dotenv";
@@ -15,9 +13,7 @@ const verifyToken = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("Decoded Token:", decoded);
     req.user = decoded; // Attach decoded user to request object
-    console.log(req.user);
 
     // If role-based authentication is needed
     // if (decoded.role !== "admin") {
@@ -26,7 +22,13 @@ const verifyToken = (req, res, next) => {
 
     next(); // Move to next middleware if token is valid
   } catch (error) {
-    return sendResponse(res, 401, null, true, error.message || "Invalid or expired token");
+    return sendResponse(
+      res,
+      401,
+      null,
+      true,
+      error.message || "Invalid or expired token"
+    );
   }
 };
 

@@ -1,6 +1,6 @@
 
 import sendResponse from "../../helper/sendResponse.js"
-import UserModel from "../../modules/userSchema.js"
+import UserModel from "../../modules/user.js"
 
 const getAllUsers = async (req, res) => {
     try {

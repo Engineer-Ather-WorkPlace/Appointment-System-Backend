@@ -1,4 +1,3 @@
-
 import sendResponse from "../../helper/sendResponse.js";
 import categoriesMoodel from "../../modules/categories.js";
 

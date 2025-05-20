@@ -1,35 +1,37 @@
 import mongoose from "./connect/connectDB.js";
-import 'dotenv/config'
-import express from "express"
-import cors from 'cors'
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
 import userRouter from "./routes/userRoutes.js";
-import categories from "./routes/catagories.js";
-import { surgeryRoute } from "./routes/surgeries.js";
-const app = express()
+import categories from "./routes/categoriesRoutes.js";
+import { surgeryRoute } from "./routes/surgeriesRoutes.js";
+import feedbackRoutes from "./routes/feedbackRoutes.js";
+import reportRoutes from "./routes/reportsRoutes.js";
+const app = express();
 
-const port = process.env.PORT || 4000;  // use process.env.PORT for Vercel
+const port = process.env.PORT || 4000; // use process.env.PORT for Vercel
 
 // for mongo db connection
 mongoose.connection.on("error", (err) => {
-    console.log("Error in connection", err);
-})
+  console.log("Error in connection", err);
+});
 mongoose.connection.on("open", () => {
-    console.log("MongoDB is connected successfully");
+  console.log("MongoDB is connected successfully");
 });
 
-
 app.get("/", (req, res) => {
-    res.send("Life Line Hospital")
-})
+  res.send("Life Line Hospital");
+});
 
-app.use(express.json()) // This will allow us to handle JSON bodies
+app.use(express.json()); // This will allow us to handle JSON bodies
 app.use(cors());
 
-app.use("/user", userRouter)
-app.use("/catagories", categories)
-app.use("/surgeries", surgeryRoute)
+app.use("/user", userRouter);
+app.use("/catagories", categories);
+app.use("/surgeries", surgeryRoute);
+app.use("/feedbacks", feedbackRoutes);
+app.use("/reports", reportRoutes);
 
 app.listen(port, () => {
-    console.log("Server is live on port : ", port);
-
-})
+  console.log("Server is live on port : ", port);
+});
