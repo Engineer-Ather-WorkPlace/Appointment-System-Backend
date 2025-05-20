@@ -21,7 +21,7 @@ const surgerySchema = new mongoose.Schema({
                 experience: { type: String, required: true },
                 fees: { type: String, required: true },
                 image: { type: String },
-                // employID: {type: String, required: true, unique: true},
+                employID: {type: String, required: true, unique: true},
             }
         ],
         default: []

@@ -1,12 +1,12 @@
 
 import sendResponse from "../../helper/sendResponse.js";
-import surgeryBookingModel from "../../modules/surgeryBooking.js";
+import quickSurgeryBookingModal from "../../modules/quickSurgery.js";
 
 export const quickSurgeryBooking = async (req, res) => {
     try {
-        const { patientName, contactNumber, surgery } = req.body
+        const { patientName, contactNumber, resuestForSurgery } = req.body
 
-        if (!patientName || !contactNumber || !surgery) {
+        if (!patientName || !contactNumber || !resuestForSurgery) {
             return sendResponse(
                 res,
                 400,
@@ -16,7 +16,7 @@ export const quickSurgeryBooking = async (req, res) => {
             )
         }
 
-        const newSurgeryBooking = new surgeryBookingModel({ patientName, contactNumber, surgery })
+        const newSurgeryBooking = new quickSurgeryBookingModal({ patientName, contactNumber, resuestForSurgery })
 
         const saveSurgeryBooking = await newSurgeryBooking.save()
 
