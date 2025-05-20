@@ -1,5 +1,4 @@
-// import UserModel from '../../modules/userSchema';
-import UserModel from '../../modules/userSchema.js';
+import UserModel from '../../modules/user.js';
 import sendResponse from '../../helper/sendResponse.js';
 import bcrypt from 'bcryptjs';
 
@@ -22,7 +21,6 @@ const signup = async (req, res) => {
             icon,
             status,
         } = req.body;
-
         // Check if user exists (email or employID)
         const existingUser = await UserModel.findOne({
             $or: [{ email }, { employID }]

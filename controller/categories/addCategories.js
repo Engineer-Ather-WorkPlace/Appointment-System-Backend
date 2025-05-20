@@ -1,10 +1,8 @@
-
-import mongoose from "mongoose";
 import sendResponse from "../../helper/sendResponse.js";
 import categoriesMoodel from "../../modules/categories.js";
 
 
-export const addCatagories = async (req, res) => {
+export const addCategories = async (req, res) => {
 
 try{
 
