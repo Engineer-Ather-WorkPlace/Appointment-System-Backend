@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const surgerySchema = new mongoose.Schema({
 
-    surgery: {
+    surgeryTitle: {
         type: String,
         required: true,
     },
@@ -16,12 +16,12 @@ const surgerySchema = new mongoose.Schema({
     surgeon: {
         type: [
             {
-                name: { type: String, required: true },
-                education: { type: String, required: true },
-                experience: { type: String, required: true },
-                fees: { type: String, required: true },
+                name: { type: String, },
+                education: { type: String, },
+                experience: { type: String, },
+                fees: { type: String, },
                 image: { type: String },
-                employID: {type: String, required: true, unique: true},
+                employID: {type: String,},
             }
         ],
         default: []

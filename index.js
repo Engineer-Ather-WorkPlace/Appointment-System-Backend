@@ -4,10 +4,10 @@ import express from "express";
 import cors from "cors";
 import userRouter from "./routes/userRoutes.js";
 import categories from "./routes/categoriesRoutes.js";
-import { surgeryRoute } from "./routes/surgeriesRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoutes.js";
 import reportRoutes from "./routes/reportsRoutes.js";
 import quickSurgeryRoute from "./routes/quickSurgery.js";
+import { addNewSurgeryRoute } from "./routes/addNewSurgeriesRoutes.js";
 const app = express();
 
 const port = process.env.PORT || 4000; // use process.env.PORT for Vercel
@@ -29,7 +29,7 @@ app.use(cors());
 
 app.use("/user", userRouter);
 app.use("/catagories", categories);
-app.use("/surgeries", surgeryRoute);
+app.use("/surgeries", addNewSurgeryRoute);
 app.use("/quickSurgery", quickSurgeryRoute)
 app.use("/feedbacks", feedbackRoutes);
 app.use("/reports", reportRoutes);
