@@ -8,6 +8,7 @@ import feedbackRoutes from "./routes/feedbackRoutes.js";
 import reportRoutes from "./routes/reportsRoutes.js";
 import quickSurgeryRoute from "./routes/quickSurgery.js";
 import { addNewSurgeryRoute } from "./routes/addNewSurgeriesRoutes.js";
+import { doctorRoute} from "./routes/addDoctor.js";
 const app = express();
 
 const port = process.env.PORT || 4000; // use process.env.PORT for Vercel
@@ -28,6 +29,7 @@ app.use(express.json()); // This will allow us to handle JSON bodies
 app.use(cors());
 
 app.use("/user", userRouter);
+app.use("/doctor", doctorRoute)
 app.use("/catagories", categories);
 app.use("/surgeries", addNewSurgeryRoute);
 app.use("/quickSurgery", quickSurgeryRoute)
