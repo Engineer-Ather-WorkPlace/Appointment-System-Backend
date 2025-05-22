@@ -17,7 +17,13 @@ const doctorSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: [String],
-        required: true
+        required: true,
+        validate: {
+        validator: function (numbers) {
+            return numbers.every(num => /^03[0-9]{9}$/.test(num));
+        },
+        message: 'All phone numbers must be valid Pakistani numbers starting with 03 and 11 digits long.'
+    }
     },
     address: {
         type: String,
