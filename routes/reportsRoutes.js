@@ -1,8 +1,11 @@
-import express from "express"
-import LabtestReports from "../controller/labtestReports/reports.js"
+import express from "express";
+import LabtestReports from "../controller/labtestReports/reports.js";
+import getLabtestReports from "../controller/labtestReports/getReports.js";
 
-const reportRoutes = express.Router()
+const reportRoutes = express.Router();
 
-reportRoutes.post("/addReport", LabtestReports)
+reportRoutes.post("/addReport", LabtestReports);
 
-export default reportRoutes
+reportRoutes.get("/getReport", getLabtestReports);
+
+export default reportRoutes;
