@@ -1,4 +1,6 @@
-import staffModel from "../../modules/addDoctor.js"
+// import staffModel from "../../modules/addDoctor.js"
+
+import doctorModel from "../../modules/addDoctor.js";
 import sendResponse from "../../helper/sendResponse.js";
 import bcrypt from 'bcryptjs';
 
@@ -19,8 +21,9 @@ const signupAsaDoctor = async (req, res) => {
             status,
         } = req.body;
 
-        // Check if user exists (email or employID)
-        const staffExist = await staffModel.findOne({
+        
+        const staffExist = await doctorModel.findOne({
+
             $or: [{ email }, { employID }]
         });
 
@@ -49,7 +52,7 @@ const signupAsaDoctor = async (req, res) => {
             specialization,
         };
         
-        const newUser = new staffModel(userData);
+        const newUser = new doctorModel (userData);
         await newUser.save();
         
         sendResponse(res, 201, newUser, false, "Account created successfully");

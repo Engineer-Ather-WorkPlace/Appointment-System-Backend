@@ -45,7 +45,7 @@ const doctorSchema = new mongoose.Schema({
     education: {
         type: [
             {
-                Qualification: { type: String, },
+                qualification: { type: String, },
                 passingYear: { type: String, },
                 address: { type: String, },
             }
@@ -54,7 +54,7 @@ const doctorSchema = new mongoose.Schema({
     specialization: {
         type: [
             {
-                field: { type: String, required: true },
+                catagory: { type: String, required: true },
                 experience: { type: Number, required: true },
             }
         ]
